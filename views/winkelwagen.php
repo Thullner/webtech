@@ -1,0 +1,3 @@
+<main>
+    Shopping cart
+</main>

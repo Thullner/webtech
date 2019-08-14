@@ -1,0 +1,82 @@
+header {
+  background: $primary;
+  color: $white;
+  overflow-x: hidden;
+
+  white-space: nowrap;
+
+  box-shadow: 0 3px 5px -1px rgba(0,0,0,.2);
+
+  @include tablet {
+    position: fixed;
+    left: 0;
+    top: 0;
+    right: 0;
+  }
+
+  nav {
+    max-width: 1200px;
+    padding: 0.5rem 0.2rem;
+    margin: 0 auto;
+
+    display: flex;
+
+    flex-direction: column;
+
+    @include desktop {
+      align-items: center;
+      flex-direction: row;
+    }
+
+    div:first-child {
+      padding: .5rem 0.8rem;
+      font-size: 1.5rem;
+      margin-right: 1em;
+    }
+
+    div:last-child {
+      flex: 1;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+
+      ul {
+        list-style-type: none;
+        display: flex;
+        flex-wrap: wrap;
+        flex-direction: row;
+
+        &:last-child {
+          font-size: 0.75rem;
+        }
+
+        margin-top: 0.4rem;
+
+        @include tablet {
+          margin-top: 0;
+        }
+
+      }
+
+      li {
+        margin-right: 0.4em;
+      }
+
+      a {
+        color: $white;
+        text-decoration: none;
+        padding: .4rem 0.8rem;
+        border-radius: 4px;
+
+        &.active {
+          color: yellow;
+        }
+
+        &:hover {
+          background-color: $primary-darker;
+        }
+      }
+    }
+  }
+}

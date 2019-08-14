@@ -1,0 +1,19 @@
+form {
+  div {
+    margin-bottom: 1em;
+  }
+
+  label {
+    font-weight: 300;
+  }
+
+  input, textarea {
+    padding: 6px 12px;
+    border: 1px solid $primary-darker;
+    border-radius: 2px;
+  }
+
+  button {
+
+  }
+}

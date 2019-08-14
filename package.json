@@ -1,0 +1,11 @@
+{
+  "name": "sass-compiler",
+  "version": "1.0.0",
+  "description": "Compile sass/style.scss to style.css",
+  "dependencies": {
+    "node-sass": "^4.*"
+  },
+  "scripts": {
+    "start": "node-sass -rw scss -o style"
+  }
+}
