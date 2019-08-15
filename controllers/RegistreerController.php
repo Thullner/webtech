@@ -15,6 +15,6 @@ class RegistreerController extends PaginaController
     public function __construct(Database $database)
     {
         parent::__construct($database);
-        $this->buildPage('Registreer', 'registreer');
+        $this->bouwPagina('Registreer', 'registreer');
     }
 }

@@ -12,17 +12,17 @@ abstract class PaginaController
         $this->pdo = $database->getPDO();
     }
 
-    protected function buildPage(string $pageName, string $pageFileName, array $variables = [])
+    protected function bouwPagina(string $paginaNaam, string $paginaBestandsNaam, array $variabelen = [])
     {
         include 'config.php';
 
-        include 'views/components/head.php';
-        include 'views/components/header.php';
+        include 'views/componenten/head.php';
+        include 'views/componenten/header.php';
 
 
-        extract($variables);
-        include "views/$pageFileName.php";
+        extract($variabelen);
+        include "views/$paginaBestandsNaam.php";
 
-        include 'views/components/footer.php';
+        include 'views/componenten/footer.php';
     }
 }

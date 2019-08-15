@@ -6,13 +6,13 @@
  * Time: 23:11
  */
 
-namespace database\queries;
+namespace database\vragen;
 use PDO;
 
-class BookQueries extends DatabaseQueries
+class BoekVragen extends DatabaseVragen
 {
     public function __construct(PDO $pdo)
     {
-        parent::__construct($pdo, 'books');
+        parent::__construct($pdo, 'boeken');
     }
 }

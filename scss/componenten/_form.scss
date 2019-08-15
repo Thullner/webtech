@@ -1,0 +1,40 @@
+form {
+  div {
+    margin-bottom: 1em;
+    margin-right: .5em;
+    display: flex;
+    align-items: center;
+
+    > * {
+      margin-right: .5em;
+      display: flex;
+      justify-content: space-between;
+    }
+  }
+
+  label {
+    font-weight: 600;
+  }
+
+  input, textarea, select {
+    padding: 6px 12px;
+    //border: 1px solid $primary-darker;
+    border-radius: 2px;
+  }
+
+  button, a {
+    font-weight: normal;
+    text-decoration: none;
+    font-size: 1rem;
+    padding: 8px 14px;
+    color: $white;
+    border: 0px;
+    border-radius: 2px;
+    background-color: $primary;
+    cursor: pointer;
+
+    &:hover{
+      background-color: $primary-darker;
+    }
+  }
+}

@@ -1,0 +1,45 @@
+.home {
+
+
+
+  form {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+  }
+
+  section {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+
+    figure {
+      //padding: 1rem;
+      max-width: 250px;
+      position: relative;
+      margin-right: 1rem;
+      margin-bottom: 1rem;
+      box-shadow: 4px 4px 4px 0px rgba(0,0,0,0.35);
+      background-color: $white;
+
+      border: 1px solid $black;
+
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+
+      img {
+
+
+        object-fit: cover;
+        width: 100%;
+      }
+
+      figcaption {
+        margin-top: .5rem;
+        padding: 1em;
+        word-break: break-all;
+      }
+    }
+  }
+}

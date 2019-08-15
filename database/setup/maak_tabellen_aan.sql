@@ -11,9 +11,9 @@ SET time_zone = "+00:00";
 CREATE TABLE gebruikers
 (
   id         INT(10) AUTO_INCREMENT,
-  loginNaam  varchar(15)  NOT NULL,
-  voorNaam   varchar(100) NOT NULL,
-  achterNaam varchar(100) NOT NULL,
+  loginnaam  varchar(15)  NOT NULL,
+  voornaam   varchar(100) NOT NULL,
+  achternaam varchar(100) NOT NULL,
   wachtwoord varchar(255) NOT NULL,
   PRIMARY KEY (id)
 );
@@ -23,7 +23,9 @@ CREATE TABLE boeken
   id                INT(10) AUTO_INCREMENT,
   titel             varchar(50)      NOT NULL,
   jaarVanPublicatie numeric(4)       NOT NULL,
-  afbeelding        varchar(100)     NULL,
+  afbeelding        varchar(100)     NOT NULL,
+  prijs             float            NOT NULL,
+  aantal            INT(10)          NOT NULL,
   auteurId          INT(10) UNSIGNED NOT NULL,
   genreId           INT(10) UNSIGNED NOT NULL,
   PRIMARY KEY (id)
@@ -32,17 +34,25 @@ CREATE TABLE boeken
 CREATE TABLE auteurs
 (
   id         INT(10) UNSIGNED AUTO_INCREMENT,
-  voorNaam   varchar(20) NOT NULL,
-  achterNaam varchar(20) NOT NULL,
+  voornaam   varchar(20) NOT NULL,
+  achternaam varchar(20) NOT NULL,
   PRIMARY KEY (id)
 );
 
 CREATE TABLE genres
 (
-  id   INT(10) AUTO_INCREMENT,
+  id   INT(10) UNSIGNED AUTO_INCREMENT,
   naam VARCHAR(100) NOT NULL,
   PRIMARY KEY (id)
 );
 
 
+ALTER TABLE boeken
+  ADD FOREIGN KEY fk_auteur (auteurId)
+    REFERENCES auteurs (id)
+    ON DELETE CASCADE ON UPDATE CASCADE;
 
+ALTER TABLE boeken
+  ADD FOREIGN KEY fk_genres (genreId)
+    REFERENCES genres (id)
+    ON DELETE NO ACTION ON UPDATE CASCADE;

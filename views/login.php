@@ -10,7 +10,7 @@
             <input type="password" name="email">
         </div>
         <div>
-            <input type="submit" value="Inloggen">
+            <button type="submit">Inloggen</button>
         </div>
     </form>
 </main>

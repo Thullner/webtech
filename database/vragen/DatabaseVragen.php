@@ -6,15 +6,15 @@
  * Time: 16:24
  */
 
-namespace database\queries;
+namespace database\vragen;
 
 use PDO;
 
-class DatabaseQueries
+class DatabaseVragen
 {
-
     protected $table;
     private $pdo;
+    private $sql = '';
 
     public function __construct(PDO $pdo, string $table)
     {
@@ -22,26 +22,38 @@ class DatabaseQueries
         $this->table = $table;
     }
 
-    public function find($id){
+    public function vind($id){
         $dbData = $this->pdo->query("SELECT * FROM $this->table WHERE id = $id;");
-
-        $data = [];
-        while ($row = $dbData->fetch()){
-            $data[] = $row;
-        };
+        $data = $dbData->fetch();
         return $data;
     }
 
-    public function all(){
-        $dbData = $this->pdo->query("SELECT * FROM $this->table;");
-        $data = [];
-        while ($row = $dbData->fetch()){
-            $data[] = $row;
-        };
+    public function alles(){
+        $dbData = $this->pdo->prepare("SELECT * FROM $this->table;");
+        $dbData->execute();
+        $data = $dbData->fetchAll();;
         return $data;
     }
 
-    public function store($dataObject){
+    public function waar(string $kolom, string $id){
+        if ($this->sql === '') {
+            $this->sql = "WHERE $kolom = $id";
+        } else {
+            $this->sql .= " AND $kolom = $id";
+        }
+
+        return $this;
+    }
+
+    public function voerSqlUit(){
+        $dbData = $this->pdo->prepare("SELECT * FROM $this->table $this->sql;");
+        $dbData->execute();
+        $data = $dbData->fetchAll();;
+        return $data;
+    }
+
+
+    public function opslaan($dataObject){
         $columns = implode(",", array_keys($dataObject));
         $values = implode(",", array_keys($dataObject));
         $dbStatement = $this->pdo->prepare("INSERT INTO $this->table ($columns) VALUES ($values);");

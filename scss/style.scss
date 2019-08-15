@@ -1,9 +1,12 @@
-@import "base/variables";
-@import "base/setup";
+@import "basis/variables";
+@import "basis/setup";
 
 @import "mixins/mediaqueries";
-
 @import "layout/layout";
-@import "components/header";
-@import "components/main";
-@import "components/form";
+
+@import "componenten/header";
+@import "componenten/main";
+@import "componenten/form";
+
+
+@import "paginas/home";
