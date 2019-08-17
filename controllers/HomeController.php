@@ -36,8 +36,11 @@ class HomeController extends PaginaController
             } else {
                 if (isset($_SESSION['winkelwagen']['boeken'][$boekId])) {
                     $_SESSION['winkelwagen']['boeken'][$boekId]++;
+                    $meldingen['boek-toegevoegd'] = $boek;
                 } else {
                     $_SESSION['winkelwagen']['boeken'][$boekId] = 1;
+                    $meldingen['boek-toegevoegd'] = $boek;
+
                 }
             }
         }
