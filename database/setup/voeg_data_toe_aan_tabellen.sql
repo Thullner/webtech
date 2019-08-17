@@ -1,3 +1,7 @@
+INSERT INTO gebruikers (id, loginnaam, voornaam, achternaam, wachtwoord)
+VALUES (1, 'gebruiker', 'Mischa', 'Thullner', '123456');
+
+
 INSERT INTO auteurs (id, voornaam, achternaam)
 VALUES (1, 'J.K.', 'Rowling'),
        (2, 'Brandon', 'Sanderson'),

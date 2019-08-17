@@ -9,11 +9,6 @@ use database\vragen\BoekVragen;
 
 class HomeController extends PaginaController
 {
-    public function __construct(Database $database)
-    {
-        parent::__construct($database);
-    }
-
     public function index()
     {
         $boekVragen = new BoekVragen($this->pdo);
@@ -22,6 +17,10 @@ class HomeController extends PaginaController
         $meldingen = [];
 
         if (isset($_POST['boekId'])) {
+
+            if (!isset($_SESSION['gebruiker'])) {
+                header("Location: $this->rootPath/login");
+            }
 
             $boekId = $_POST['boekId'];
             $boek = $boekVragen->vind($boekId);
@@ -54,7 +53,13 @@ class HomeController extends PaginaController
 
         $auteurs = $auteurVragen->alles();
         $genres = $genreVragen->alles();
-        $boeken = $boekVragen->verkrijgDataMetWaars();
+        $boeken = $boekVragen->verkrijgData();
+
+        for ($i = 0; $i < count($boeken); $i++) {
+            $auteur = $auteurVragen->vind($boeken[$i]['auteurId']);
+            $boeken[$i]['auteurVoornaam'] = $auteur['voornaam'];
+            $boeken[$i]['auteurAchternaam'] = $auteur['achternaam'];
+        }
 
         $this->bouwPagina('Home', 'home', [
             'genres' => $genres,

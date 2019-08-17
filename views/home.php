@@ -49,32 +49,40 @@
             <button type="submit">Filter</button>
         </div>
         <div>
-            <a href="/<?= $rootURI ?>/">Verwijder filters</a>
+            <a href="<?= $rootPath ?>/">Verwijder filters</a>
         </div>
     </form>
 
     <section>
 
         <?php if (count($boeken) === 0) : ?>
-            Voor deze auteur in combinatie met dit genre, zijn geen boeken beschikbaar.
+            Voor deze auteur in combinatie met dit genre, zijn er geen boeken beschikbaar.
         <?php else : ?>
             <?php foreach ($boeken as $boek): ?>
                 <figure>
-                    <img src="/<?= $rootURI ?>/afbeeldingen/boeken/<?= $boek['afbeelding'] ?>"
+                    <img src="<?= $rootPath ?>/afbeeldingen/boeken/<?= $boek['afbeelding'] ?>"
                          alt="Afbeelding van <?= $boek['titel'] ?>"/>
                     <figcaption>
-                        <span>
-                           <?= $boek['titel'] ?>
-                        </span>
-                        <form method="post">
-                            <input type="hidden" name="boekId" value="<?= $boek['id'] ?>">
-                            <button>
-                                <i class="fa fa-plus">
-                                </i>
-                                <i class="fa fa-shopping-cart">
-                                </i>
-                            </button>
-                        </form>
+                        <div>
+                            <div>
+                                <?= $boek['titel'] ?>
+                            </div>
+                            <div>
+                                <?= $boek['auteurVoornaam'] ?> <?= $boek['auteurAchternaam'] ?>
+                            </div>
+                        </div>
+                        <div>
+                            <a href="<?= $rootPath ?>/boek/<?= $boek['id'] ?>">Meer informatie</a>
+                            <form method="post">
+                                <input type="hidden" name="boekId" value="<?= $boek['id'] ?>">
+                                <button>
+                                    <i class="fa fa-plus">
+                                    </i>
+                                    <i class="fa fa-shopping-cart">
+                                    </i>
+                                </button>
+                            </form>
+                        </div>
                     </figcaption>
                 </figure>
             <?php endforeach; ?>

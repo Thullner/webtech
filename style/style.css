@@ -65,7 +65,10 @@ header {
           header nav div:last-child ul {
             margin-top: 0; } }
       header nav div:last-child li {
-        margin-right: 0.4em; }
+        margin-right: 0.4em;
+        font-size: 1rem; }
+      header nav div:last-child i {
+        margin-right: .5em; }
       header nav div:last-child a {
         color: #FFF;
         text-decoration: none;
@@ -111,7 +114,9 @@ form div {
   margin-bottom: 1em;
   margin-right: .5em;
   display: flex;
-  align-items: center; }
+  align-items: center;
+  justify-content: space-between;
+  max-width: 400px; }
   form div > * {
     margin-right: .5em;
     display: flex;
@@ -187,9 +192,29 @@ table {
       padding: 1em;
       word-break: break-all;
       display: flex;
-      flex-direction: row;
-      justify-content: space-between; }
+      flex-direction: column; }
+      .home section figure figcaption > div {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between; }
+        .home section figure figcaption > div:first-child {
+          margin-bottom: .5em;
+          flex-direction: column; }
+          .home section figure figcaption > div:first-child > div:first-child {
+            font-weight: bold; }
       .home section figure figcaption button {
         display: flex; }
         .home section figure figcaption button > i:first-child {
           margin-right: 4px; }
+
+.boek section {
+  display: flex;
+  flex-direction: column; }
+  @media only screen and (min-width: 768px) {
+    .boek section {
+      flex-direction: row;
+      justify-content: space-between; } }
+  .boek section img {
+    max-width: 100%; }
+  .boek section > div {
+    flex: 1; }

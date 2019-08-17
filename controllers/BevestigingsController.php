@@ -7,11 +7,6 @@ use database\vragen\BoekVragen;
 
 class BevestigingsController extends PaginaController
 {
-    public function __construct(Database $database)
-    {
-        parent::__construct($database);
-    }
-
     public function index()
     {
         $aantalBoekenPerBoek = $_SESSION['winkelwagen']['boeken'];

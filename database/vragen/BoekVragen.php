@@ -25,9 +25,6 @@ class BoekVragen extends DatabaseVragen
             throw new \Exception('Te weinig boeken in de voorraad voor deze bestelling');
         }
 
-        var_dump('bookId: '. $bookId);
-        var_dump('aantalBoeken: '.$boek['aantal']);
-
         $dbData = $this->pdo->prepare("UPDATE boeken SET aantal = $nieuwAantalBoeken WHERE id = $bookId;");
         $dbData->execute();
 

@@ -36,20 +36,26 @@ class DatabaseVragen
         return $data;
     }
 
-    public function waar(string $kolom, string $id){
+    public function waar(string $kolom, $value){
+
+        if (!is_numeric($value)) {
+            $value = "'" . $value . "'";
+        }
+
         if ($this->sql === '') {
-            $this->sql = "WHERE $kolom = $id";
+            $this->sql = "WHERE $kolom = $value";
         } else {
-            $this->sql .= " AND $kolom = $id";
+            $this->sql .= " AND $kolom = $value";
         }
 
         return $this;
     }
 
-    public function verkrijgDataMetWaars(){
+    public function verkrijgData(){
         $dbData = $this->pdo->prepare("SELECT * FROM $this->table $this->sql;");
         $dbData->execute();
         $data = $dbData->fetchAll();;
         return $data;
     }
+
 }

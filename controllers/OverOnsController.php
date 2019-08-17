@@ -2,10 +2,11 @@
 
 namespace controllers;
 
+use database\Database;
+
 class OverOnsController extends PaginaController
 {
-    public function __construct()
-    {
+    public function index(){
         $this->bouwPagina('Over ons', 'over-ons');
     }
 }

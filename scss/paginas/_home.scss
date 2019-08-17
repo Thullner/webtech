@@ -39,8 +39,24 @@
         padding: 1em;
         word-break: break-all;
         display: flex;
-        flex-direction: row;
-        justify-content: space-between;
+        flex-direction: column;
+
+        > div {
+          display: flex;
+          flex-direction: row;
+          justify-content: space-between;
+          &:first-child {
+            margin-bottom: .5em;
+            flex-direction: column;
+
+            > div:first-child {
+              font-weight: bold;
+            }
+
+
+          }
+        }
+        //justify-content: space-between;
 
         button {
           display: flex;

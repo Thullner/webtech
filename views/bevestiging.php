@@ -12,4 +12,7 @@
 
     <p>U heeft <?= $totaalAantalBoeken ?> boeken besteld, voor een totale prijs van € <?= number_format($totalePrijs,
             2) ?></p>
+    <div>
+        <a href="<?= $rootPath ?>">Home</a>
+    </div>
 </main>

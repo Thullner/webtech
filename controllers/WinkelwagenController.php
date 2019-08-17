@@ -9,13 +9,12 @@ use database\vragen\BoekVragen;
 
 class WinkelwagenController extends PaginaController
 {
-    public function __construct(Database $database)
-    {
-        parent::__construct($database);
-    }
-
     public function index()
     {
+        if (!isset($_SESSION['gebruiker'])) {
+            header("Location: $this->rootPath/login");
+        }
+
         if (isset($_POST['leegWinkelwagen'])) {
             $_SESSION['winkelwagen']['boeken'] = [];
         }

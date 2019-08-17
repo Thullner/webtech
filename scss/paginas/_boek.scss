@@ -1,0 +1,19 @@
+.boek {
+  section {
+    display: flex;
+    flex-direction: column;
+
+    @include tablet{
+      flex-direction: row;
+      justify-content: space-between;
+    }
+
+    img {
+      max-width: 100%;
+    }
+
+    > div {
+      flex: 1;
+    }
+  }
+}

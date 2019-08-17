@@ -5,8 +5,6 @@ use database\Database;
 include '.config.php';
 require 'database/Database.php';
 
-var_dump(__DIR__);
-
 $database = new Database($mysqlHostname, $mysqlDbname, $mysqlUsername, $mysqlPassword);
 
 function __autoload($Class)
@@ -16,8 +14,6 @@ function __autoload($Class)
 }
 
 $request = $_SERVER['REQUEST_URI'];
-$requestWithOutBase = substr($request, strlen($rootURI . '/'));
-
-$requestMethode = $_SERVER['REQUEST_METHOD'];
+$requestWithOutBase = substr($request, strlen($rootPath));
 
 require 'routes.php';

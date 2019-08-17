@@ -2,7 +2,7 @@
 
 
 // RootURI
-$rootURI = 'webtech';
+$rootURI = '/webtech';
 
 // DB settings
 $mysqlHostname = 'localhost';

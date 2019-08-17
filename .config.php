@@ -1,6 +1,6 @@
 <?php
 // RootURI
-$rootURI = 'webtech';
+$rootPath = '/webtech';
 
 // DB settings
 $mysqlHostname = 'localhost';
