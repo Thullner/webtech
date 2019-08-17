@@ -12,15 +12,36 @@ class HomeController extends PaginaController
     public function __construct(Database $database)
     {
         parent::__construct($database);
-
     }
 
     public function index()
     {
-
         $boekVragen = new BoekVragen($this->pdo);
         $auteurVragen = new AuteurVragen($this->pdo);
         $genreVragen = new GenreVragen($this->pdo);
+        $meldingen = [];
+
+        if (isset($_POST['boekId'])) {
+
+            $boekId = $_POST['boekId'];
+            $boek = $boekVragen->vind($boekId);
+
+            $gereserveerdeBoeken = 1;
+
+            if (isset($_SESSION['winkelwagen']['boeken'][$boekId])){
+                $gereserveerdeBoeken += $_SESSION['winkelwagen']['boeken'][$boekId];
+            }
+
+            if ($gereserveerdeBoeken > $boek['aantal']) {
+                $meldingen['fout-voorraad'] = $boek;
+            } else {
+                if (isset($_SESSION['winkelwagen']['boeken'][$boekId])) {
+                    $_SESSION['winkelwagen']['boeken'][$boekId]++;
+                } else {
+                    $_SESSION['winkelwagen']['boeken'][$boekId] = 1;
+                }
+            }
+        }
 
 
         if (isset($_GET['auteurId']) && $_GET['auteurId'] !== '') {
@@ -33,12 +54,13 @@ class HomeController extends PaginaController
 
         $auteurs = $auteurVragen->alles();
         $genres = $genreVragen->alles();
-        $boeken = $boekVragen->voerSqlUit();
+        $boeken = $boekVragen->verkrijgDataMetWaars();
 
         $this->bouwPagina('Home', 'home', [
             'genres' => $genres,
             'boeken' => $boeken,
-            'auteurs' => $auteurs
+            'auteurs' => $auteurs,
+            'meldingen' => $meldingen
         ]);
 
     }

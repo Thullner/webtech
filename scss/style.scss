@@ -4,9 +4,13 @@
 @import "mixins/mediaqueries";
 @import "layout/layout";
 
+
+@import "componenten/linksEnKnoppen";
 @import "componenten/header";
 @import "componenten/main";
 @import "componenten/form";
+@import "componenten/table";
 
 
 @import "paginas/home";
+@import "paginas/winkelwagen";

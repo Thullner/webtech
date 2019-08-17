@@ -1,8 +1,22 @@
 <main>
     <h2>Home</h2>
     <p>
-        Welkom bij <em>De Boekenwinkel</em>
+        Welkom bij <em>De Boekenwinkel!</em> U kunt hier de leukste en nieuwste boeken bestellen.
     </p>
+    <?php if (count($meldingen) > 0): ?>
+        <ul class="meldingen">
+            <?php if (isset($meldingen['boek-toegevoegd'])) : ?>
+                <li>
+                    <?= '"' . $meldingen['boek-toegevoegd']['titel'] . '" is toegevoegd aan de winkelwagen' ?>
+                </li>
+            <?php endif; ?>
+            <?php if (isset($meldingen['fout-voorraad'])) : ?>
+                <li class="fout">
+                    <?= 'Geen voorraad meer van "' . $meldingen['fout-voorraad']['titel'] . '"' ?>
+                </li>
+            <?php endif; ?>
+        </ul>
+    <?php endif; ?>
     <form method="get">
         <div>
             <label for="auteuren">Kies een auteur</label>
@@ -49,7 +63,18 @@
                     <img src="/<?= $rootURI ?>/afbeeldingen/boeken/<?= $boek['afbeelding'] ?>"
                          alt="Afbeelding van <?= $boek['titel'] ?>"/>
                     <figcaption>
-                        <?= $boek['titel'] ?>
+                        <span>
+                           <?= $boek['titel'] ?>
+                        </span>
+                        <form method="post">
+                            <input type="hidden" name="boekId" value="<?= $boek['id'] ?>">
+                            <button>
+                                <i class="fa fa-plus">
+                                </i>
+                                <i class="fa fa-shopping-cart">
+                                </i>
+                            </button>
+                        </form>
                     </figcaption>
                 </figure>
             <?php endforeach; ?>

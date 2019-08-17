@@ -20,6 +20,6 @@ VALUES ('It', 1986, 'it.jpg', 22.50, 3, 4, 4),
        ('Skyward', 2018, 'skyward.jpg', 18.25, 11, 2, 2),
        ('Harry Potter and the Philosopher\'s Stone ', 1997, 'harry-potter-and-the-philosopher\'s-stone.jpg', 20.80, 5, 1, 1),
        ('Harry Potter and the Prisoner of Azkaban', 1999, 'harry-potter-and-the-prisoner-of-azkaban.jpg', 23, 5, 1, 1),
-       ('The Firm', 1991, 'the-firm.jpg', 1, 40,5, 3),
+       ('The Firm', 1991, 'the-firm.jpg', 5, 10,5, 3),
        ('The Broker', 2005, 'the-broker.jpg', 15.25, 3, 5, 3),
        ('The Pelican Brief', 1992, 'the-pelican-brief.jpg', 22, 4, 5, 3);

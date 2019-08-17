@@ -12,19 +12,27 @@ body > div {
   margin: 0 auto;
   max-width: 1200px; }
 
+button, a {
+  font-weight: normal;
+  text-decoration: none;
+  font-size: 1rem;
+  padding: 8px 14px;
+  color: #FFF;
+  border: 0px;
+  border-radius: 2px;
+  background-color: #9b1700;
+  cursor: pointer; }
+  button:hover, a:hover {
+    background-color: #680f00; }
+
 header {
   background: #9b1700;
   color: #FFF;
   overflow-x: hidden;
   white-space: nowrap;
-  box-shadow: 0 3px 5px -1px rgba(0, 0, 0, 0.2); }
-  @media only screen and (min-width: 768px) {
-    header {
-      position: fixed;
-      left: 0;
-      top: 0;
-      right: 0;
-      z-index: 2; } }
+  box-shadow: 0px 5px 10px 0px rgba(0, 0, 0, 0.75);
+  z-index: 2;
+  position: relative; }
   header nav {
     max-width: 1200px;
     padding: 0.5rem 0.2rem;
@@ -71,8 +79,11 @@ header {
 main {
   padding: 1rem;
   border: 1px solid #000;
-  border-radius: 10px;
-  background-color: antiquewhite; }
+  border-top: none;
+  border-bottom: none;
+  background-color: antiquewhite;
+  box-shadow: 0px 0px 21px 0px rgba(0, 0, 0, 0.75);
+  min-height: 100vh; }
   @media only screen and (min-width: 768px) {
     main {
       padding-top: calc(81px + 1rem); } }
@@ -84,6 +95,17 @@ main {
     margin-bottom: 1em; }
   main p {
     margin-bottom: 1em; }
+  main ul.meldingen {
+    color: white;
+    margin-bottom: 1em; }
+    main ul.meldingen li {
+      border-radius: 4px;
+      margin-bottom: .5em;
+      list-style-type: none;
+      padding: 1em;
+      background-color: green; }
+      main ul.meldingen li.fout {
+        background-color: #680f00; }
 
 form div {
   margin-bottom: 1em;
@@ -102,18 +124,39 @@ form input, form textarea, form select {
   padding: 6px 12px;
   border-radius: 2px; }
 
-form button, form a {
-  font-weight: normal;
-  text-decoration: none;
-  font-size: 1rem;
-  padding: 8px 14px;
-  color: #FFF;
-  border: 0px;
-  border-radius: 2px;
-  background-color: #9b1700;
-  cursor: pointer; }
-  form button:hover, form a:hover {
-    background-color: #680f00; }
+table {
+  border-collapse: collapse;
+  margin-bottom: 1em;
+  width: 100%; }
+  table th, table td {
+    padding: .4em;
+    border: 1px solid black;
+    font-size: .8rem; }
+    @media only screen and (min-width: 768px) {
+      table th, table td {
+        font-size: 1rem; } }
+    table th:last-child, table td:last-child {
+      border-left: 2px solid black; }
+  table tr {
+    background-color: lightgrey; }
+    table tr:nth-child(2) {
+      background: white; }
+  table thead {
+    border-bottom: 2px solid black; }
+    table thead tr {
+      color: white;
+      background-color: #9b1700;
+      word-break: break-word; }
+  table tfoot {
+    border-top: 2px solid black; }
+    table tfoot tr {
+      color: white;
+      background-color: #9b1700; }
+  table button {
+    padding: 4px 7px;
+    margin-right: .2em; }
+  table .wijzigen-winkelwagen {
+    display: flex; }
 
 .home form {
   display: flex;
@@ -140,5 +183,13 @@ form button, form a {
       width: 100%; }
     .home section figure figcaption {
       margin-top: .5rem;
+      width: 100%;
       padding: 1em;
-      word-break: break-all; }
+      word-break: break-all;
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between; }
+      .home section figure figcaption button {
+        display: flex; }
+        .home section figure figcaption button > i:first-child {
+          margin-right: 4px; }

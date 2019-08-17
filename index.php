@@ -2,8 +2,10 @@
 
 use database\Database;
 
-include 'config.php';
+include '.config.php';
 require 'database/Database.php';
+
+var_dump(__DIR__);
 
 $database = new Database($mysqlHostname, $mysqlDbname, $mysqlUsername, $mysqlPassword);
 

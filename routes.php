@@ -1,7 +1,7 @@
 <?php
 
+use controllers\BevestigingsController;
 use controllers\OverOnsController;
-use controllers\BookController;
 use controllers\HomeController;
 use controllers\LoginController;
 use controllers\RegistreerController;
@@ -19,17 +19,16 @@ switch ($requestWithOutBase) {
         new RegistreerController($database);
         break;
     case '/winkelwagen' :
-        new WinkelwagenController($database);
+        $winkelwagenController = new WinkelwagenController($database);
+        $winkelwagenController->index();
         break;
-    case '/setup' : {
-        $database->setupDatabase();
+    case '/bevestiging':
+        $bevestiginsController = new BevestigingsController($database);
+        $bevestiginsController->index();
         break;
-    }
     case '/' || '/?'  :
         $home = new HomeController($database);
-        if ($requestMethode === 'GET') {
-            $home->index($_GET);
-        }
+        $home->index();
         break;
 
 //    case (preg_match('/boek\/*/', $requestWithOutBase) ? true : false):

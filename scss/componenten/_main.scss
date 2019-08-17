@@ -1,8 +1,11 @@
 main {
   padding: 1rem;
   border: 1px solid $black;
-  border-radius: 10px;
+  border-top: none;
+  border-bottom: none;
   background-color: antiquewhite;
+  box-shadow: 0px 0px 21px 0px rgba(0,0,0,0.75);
+  min-height: 100vh;
 
   @include tablet {
     padding-top: calc(81px + 1rem);
@@ -19,5 +22,22 @@ main {
 
   p {
     margin-bottom: 1em;
+  }
+
+  ul.meldingen {
+    color: white;
+    margin-bottom: 1em;
+
+    li {
+      border-radius: 4px;
+      margin-bottom: .5em;
+      list-style-type: none;
+      padding: 1em;
+      background-color: green;
+
+      &.fout {
+        background-color: $primary-darker;
+      }
+    }
   }
 }

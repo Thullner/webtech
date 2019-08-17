@@ -13,7 +13,7 @@ use PDO;
 class DatabaseVragen
 {
     protected $table;
-    private $pdo;
+    protected $pdo;
     private $sql = '';
 
     public function __construct(PDO $pdo, string $table)
@@ -23,7 +23,8 @@ class DatabaseVragen
     }
 
     public function vind($id){
-        $dbData = $this->pdo->query("SELECT * FROM $this->table WHERE id = $id;");
+        $dbData = $this->pdo->prepare("SELECT * FROM $this->table WHERE id = $id;");
+        $dbData->execute();
         $data = $dbData->fetch();
         return $data;
     }
@@ -45,30 +46,10 @@ class DatabaseVragen
         return $this;
     }
 
-    public function voerSqlUit(){
+    public function verkrijgDataMetWaars(){
         $dbData = $this->pdo->prepare("SELECT * FROM $this->table $this->sql;");
         $dbData->execute();
         $data = $dbData->fetchAll();;
         return $data;
-    }
-
-
-    public function opslaan($dataObject){
-        $columns = implode(",", array_keys($dataObject));
-        $values = implode(",", array_keys($dataObject));
-        $dbStatement = $this->pdo->prepare("INSERT INTO $this->table ($columns) VALUES ($values);");
-        $dbStatement->execute();
-    }
-
-    public function update($dataObject, $id){
-        $columns = implode(",", array_keys($dataObject));
-        $values = implode(",", array_keys($dataObject));
-        $dbStatement = $this->pdo->prepare("UPDATE $this->table SET WHERE id = $id;");
-        $dbStatement->execute();
-    }
-
-    public function delete($id){
-        $dbStatement = $this->pdo->prepare("DELETE FROM $this->table WHERE id === $id");
-        $dbStatement->execute();
     }
 }

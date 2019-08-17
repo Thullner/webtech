@@ -39,23 +39,4 @@ class Database
             $this->username,
             $this->password);
     }
-
-    public function setupDatabase(){
-        $create_tables_sql = file_get_contents('database/setup/maak_tabellen_aan.sql');
-
-        try {
-
-            $stmt = $this->pdo->prepare($create_tables_sql);
-            $stmt->execute();
-
-        }
-        catch (PDOException $e)
-        {
-            echo'no';
-            echo $e->getMessage();
-            die();
-        }
-    }
-
-
 }

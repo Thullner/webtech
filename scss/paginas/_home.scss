@@ -29,16 +29,27 @@
       justify-content: space-between;
 
       img {
-
-
         object-fit: cover;
         width: 100%;
       }
 
       figcaption {
         margin-top: .5rem;
+        width: 100%;
         padding: 1em;
         word-break: break-all;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+
+        button {
+          display: flex;
+
+          > i:first-child {
+            margin-right: 4px;
+          }
+        }
+
       }
     }
   }

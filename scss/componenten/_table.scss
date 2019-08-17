@@ -1,0 +1,56 @@
+table {
+  border-collapse: collapse;
+  margin-bottom: 1em;
+  width: 100%;
+
+  th, td {
+    padding: .4em;
+    border: 1px solid black;
+    font-size: .8rem;
+
+    @include tablet {
+      font-size: 1rem;
+    }
+
+    &:last-child {
+      border-left: 2px solid black;
+    }
+  }
+
+  tr {
+    background-color: lightgrey;
+
+    &:nth-child(2) {
+      background: white;
+    }
+  }
+
+  thead {
+    border-bottom: 2px solid black;
+    tr {
+      color: white;
+      background-color: $primary;
+      word-break: break-word;
+
+    }
+
+  }
+
+  tfoot {
+    border-top: 2px solid black;
+    tr {
+      color: white;
+      background-color: $primary;
+    }
+  }
+
+  button {
+    padding: 4px 7px;
+    margin-right: .2em;
+  }
+
+  .wijzigen-winkelwagen {
+    display: flex;
+
+  }
+}
