@@ -40,5 +40,7 @@ abstract class PaginaController
         extract($variabelen);
         include "views/$paginaBestandsNaam.php";
 
+        include "views/componenten/footer.php";
+
     }
 }

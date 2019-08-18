@@ -10,6 +10,7 @@ waarden voor de url en database worden ingevuld.
      2. Importeer `voeg_data_toe_aan_tabelleng.sql` 
      
 **Project structuur**
+
 * /
     * .config.php
         * Hier staan de omgevingsafhankelijke instellingen

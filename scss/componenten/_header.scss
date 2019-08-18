@@ -10,12 +10,12 @@ header {
     z-index: 2;
   position: relative;
 
-  //@include tablet {
-  //  position: fixed;
-  //  left: 0;
-  //  top: 0;
-  //  right: 0;
-  //}
+  @include tablet {
+    position: fixed;
+    left: 0;
+    top: 0;
+    right: 0;
+  }
 
   nav {
     max-width: 1200px;

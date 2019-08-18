@@ -27,7 +27,7 @@
                     <li><i class="fa fa-user">
                         </i><?= $gebruiker['voornaam'] . ' ' . $gebruiker['achternaam'] ?></li>
                     <li>
-                        <a href="<?= $rootPath ?>/uitloggen"">Uitloggen</a>
+                        <a href="<?= $rootPath ?>/uitloggen">Uitloggen</a>
                     </li>
                 <?php else: ?>
                     <li>
