@@ -2,10 +2,10 @@
 
 * In `config.php` moeten lokale 
 waarden voor de url en database worden ingevuld. 
-  * De standaard instelleingen zijn op de volgende base url gebaseerd: http://localhost/webtech/
-  * Als de url niet op /webtech eindigt moet dit worden aangepast in de config
+  * De standaard instellingen zijn op de volgende base url gebaseerd: http://localhost/webtech/
+  * Als de url niet op /webtech eindigt moet dit worden aangepast in .config.php en in .htaccess
 * Opzetten database
-  * In de folder /database/setup/ zitten 2 .sql bestanden waar de database mee opgezet kan worden.
+  * In de folder /database/setup/ zitten 2 .sql bestanden waar de database mee opgezet kan worden
      1. Importeer `maak_tabellen_aan.sql`
      2. Importeer `voeg_data_toe_aan_tabelleng.sql` 
      
@@ -21,9 +21,9 @@ waarden voor de url en database worden ingevuld.
     * routes.php
         * Dit bestand verwijst de urls naar de verschillende controllers.
 * /afbeeldingen
-    * Deze map bevat alle boekafbeeldingen
+    * Deze map bevat alle afbeeldingen
 * /controllers
-    * De controllers halen de informatie uit de database ie gebruikt wordt in de views
+    * De controllers halen de informatie uit de database die gebruikt wordt in de views
     * Ook verwerken de controllers de get en post requests
     * PaginaController.php
         * Alle andere controllers extenden deze abstracte klasse.
@@ -34,7 +34,7 @@ waarden voor de url en database worden ingevuld.
   * /vragen
     * Bevat de queries die gebruikt worden om data uit de database op te vragen en veranderingen aan te brengen
   * Database.php
-    * Met deze klasse wordt de PDO gemaakt
+    * Met deze klasse wordt de PDO aangemaakt
 * /scss
   * In deze map staan alle stijl bestanden, in scss vorm. Dit geeft meer flexibiliteit dan pure .css
   * Alles in deze map wordt gecompiled naar in bestand: style.css in de /styles map
@@ -43,7 +43,7 @@ waarden voor de url en database worden ingevuld.
     * Dit is gecompilde variant van alle scss. Dit bestand wordt ook ingeladen in de website
 * /views
   * deze map bevat alle pagina's
-    * Omdat de PageController.php altijd de head, header inlaadt, staat in deze pagina.php bestanden alleen de unieke data
+    * Omdat de PageController.php altijd de head, header en footer inlaadt, staan in deze pagina.php bestanden alleen de unieke data
     * /componenten
       * Bevat de componenten die op elke pagina worden ingeladen      
 

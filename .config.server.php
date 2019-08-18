@@ -6,6 +6,6 @@ $rootURI = '/webtech';
 
 // DB settings
 $mysqlHostname = 'localhost';
-$mysqlDbname = 'webtech';
-$mysqlUsername = 'root';
+$mysqlDbname = 'DB3864398';
+$mysqlUsername = 'U3864398';
 $mysqlPassword = 'root';
